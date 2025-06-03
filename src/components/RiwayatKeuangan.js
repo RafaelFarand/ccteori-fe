@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../utils";
 
 const KeuanganRiwayat = ({ jenis, title }) => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch("/api/keuangan")
+    fetch(`${BASE_URL}/api/keuangan`)
       .then(res => res.json())
       .then(data => {
         setList(data.filter(item => item.jenis === jenis));

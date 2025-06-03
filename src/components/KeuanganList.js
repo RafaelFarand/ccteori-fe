@@ -1,12 +1,13 @@
 // components/Keuangan.js
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../utils";
 
 const Keuangan = () => {
   const [list, setList] = useState([]);
   const [summary, setSummary] = useState({ pemasukan: 0, pengeluaran: 0, saldo: 0 });
 
   useEffect(() => {
-    fetch("/api/keuangan")
+    fetch(`${BASE_URL}/api/keuangan`)
       .then(res => res.json())
       .then(setList);
   }, []);

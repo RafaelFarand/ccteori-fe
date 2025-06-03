@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { BASE_URL } from "../utils"; // Tambahkan import BASE_URL
 
 export const AuthContext = createContext();
 
@@ -14,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (email, username, password, role) => {
     setAuthError(null);
     try {
-      const response = await fetch("/api/users/add-user", {
+      const response = await fetch(`${BASE_URL}/users/add-user`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

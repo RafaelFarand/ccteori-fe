@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils";
 
 const KeuanganForm = ({ jenis }) => {
   const { user } = useAuth();
@@ -17,7 +18,7 @@ const KeuanganForm = ({ jenis }) => {
     const endpoint = form.kategori === "iuran" ? "setoran" : "pengeluaran";
     const user_id = localStorage.getItem("user_id");
     try {
-      const response = await fetch(`/api/keuangan/${endpoint}`, {
+      const response = await fetch(`${BASE_URL}/keuangan/${endpoint}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
