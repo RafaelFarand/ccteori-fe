@@ -7,13 +7,13 @@ const Keuangan = () => {
   const [summary, setSummary] = useState({ pemasukan: 0, pengeluaran: 0, saldo: 0 });
 
   useEffect(() => {
-    fetch(`${BASE_URL}/api/keuangan`)
+    fetch(`${BASE_URL}/keuangan`)
       .then(res => res.json())
       .then(setList);
   }, []);
 
   useEffect(() => {
-    fetch("/api/keuangan/summary")
+    fetch(`${BASE_URL}/keuangan/summary`)
       .then(res => res.json())
       .then(setSummary);
   }, []);
