@@ -5,7 +5,7 @@ const KeuanganRiwayat = ({ jenis, title }) => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/api/keuangan`)
+    fetch(`${BASE_URL}/keuangan`)
       .then(res => res.json())
       .then(data => {
         setList(data.filter(item => item.jenis === jenis));
