@@ -1,0 +1,3 @@
+runtime: nodejs20
+service: fe-surat
+instance_class: F1
